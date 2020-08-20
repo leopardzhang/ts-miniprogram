@@ -11,3 +11,8 @@ export interface configProxy {
 	url: string
 	method?: string
 }
+
+export interface responseConfig {
+	code: number
+	data: any
+}
