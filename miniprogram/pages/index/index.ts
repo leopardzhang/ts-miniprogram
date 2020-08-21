@@ -5,6 +5,7 @@ const app = getApp<IAppOption>()
 
 import $request from '../../config/$request/$require'
 import api from '../../config/api/api'
+import { configProxy, responseConfig } from '../../types/api/api'
 
 Page({
 	data: {
@@ -58,7 +59,7 @@ Page({
 
 	handleTap() {
 		$request({
-			proxy: api.demo,
+			proxy: (api.demo as configProxy),
 			params: {
 				userName: 'John',
 				password: '230103'
@@ -67,7 +68,7 @@ Page({
 				a: 12,
 				b: 5
 			}
-		}).then((res: any) => {
+		}).then((res: responseConfig) => {
 			console.log(res)
 		}).catch((err: Error) => {
 			console.log(err)

@@ -9,7 +9,7 @@ export interface requestConfig {
 
 export interface configProxy {
 	url: string
-	method?: string
+	method?: Method
 }
 
 export interface responseConfig {
