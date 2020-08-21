@@ -10,7 +10,7 @@ export default function $request(fetchData: requestConfig): any {
 		header = {},
 		urlParams = {}
 	} = fetchData
-	let url = ''
+	let url: string = ''
 
 	if(proxy.url.split('http').length > 1) {
 		url = proxy.url
@@ -20,7 +20,7 @@ export default function $request(fetchData: requestConfig): any {
 	
 
 	Object.keys(urlParams).forEach((k: string) => {
-		const reg = new RegExp(`:${k}`)
+		const reg: RegExp = new RegExp(`:${k}`)
 
 		url = url.replace(reg, urlParams[k])
 	})
@@ -30,7 +30,7 @@ export default function $request(fetchData: requestConfig): any {
 			url,
 			method: proxy.method,
 			data: params,
-			header: header,
+			header,
 			success(res: any) {
 				if(res.code == 200) {
 					resolve(res)

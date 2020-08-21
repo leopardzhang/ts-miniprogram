@@ -5,7 +5,7 @@ const app = getApp<IAppOption>()
 
 import $request from '../../config/$request/$require'
 import api from '../../config/api/api'
-import { configProxy, responseConfig } from '../../types/api/api'
+import { configProxy, response } from '../../types/api/api'
 
 Page({
 	data: {
@@ -68,7 +68,7 @@ Page({
 				a: 12,
 				b: 5
 			}
-		}).then((res: responseConfig) => {
+		}).then((res: response) => {
 			console.log(res)
 		}).catch((err: Error) => {
 			console.log(err)

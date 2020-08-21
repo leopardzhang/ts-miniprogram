@@ -12,7 +12,7 @@ export interface configProxy {
 	method?: Method
 }
 
-export interface responseConfig {
+export interface response {
 	code: number
 	data: any
 }
