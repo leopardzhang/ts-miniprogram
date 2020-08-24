@@ -12,13 +12,14 @@ export default function $request(fetchData: requestConfig): any {
 	} = fetchData
 	let url: string = ''
 
+	//	根据url是否有http来判断是否添加baseurl
 	if(proxy.url.split('http').length > 1) {
 		url = proxy.url
 	} else {
 		url = `${ baseUrl }/${proxy.url}`
 	}
 	
-
+	//	将url上的参数根据参数名拼接到url上
 	Object.keys(urlParams).forEach((k: string) => {
 		const reg: RegExp = new RegExp(`:${k}`)
 
