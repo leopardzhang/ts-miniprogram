@@ -1,9 +1,10 @@
 // index.ts
 
-import { requestConfig } from '../../types/api/api'
+import { requestConfig, response } from '../../types/api/api'
+import { ERR_OK } from '../code/code'
 import baseUrl from '../baseUrl/baseUrl'
 
-export default function $request(fetchData: requestConfig): any {
+export default function $request(fetchData: requestConfig): Promise<response> {
 	const {
 		proxy,
 		params = {},
@@ -33,7 +34,7 @@ export default function $request(fetchData: requestConfig): any {
 			data: params,
 			header,
 			success(res: any) {
-				if(res.code == 200) {
+				if(res.code == ERR_OK) {
 					resolve(res)
 				} else {
 					reject('请求错误')
